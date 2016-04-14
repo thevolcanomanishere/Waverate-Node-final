@@ -39,6 +39,6 @@ require('./routes/routes')(app, passport);
 
 
 console.log("Server started");
-console.log("latest server 1");
+console.log("latest server 2");
 
 app.listen(process.env.PORT);

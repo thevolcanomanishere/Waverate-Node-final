@@ -9,6 +9,10 @@ module.exports = function (app, passport){
         res.status(200).send("Hello! all is working");
     })
     
+    app.get('/hello', function(req, res){
+        res.status(200).send("All is working still");
+    })
+    
     //get a list of all users for testing
     app.get('/allusers', function(req, res){
     var response = {};
