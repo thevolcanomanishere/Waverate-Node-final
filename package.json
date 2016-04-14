@@ -2,7 +2,7 @@
   "name": "Waverate-server",
   "version": "0.0.0",
   "description": "Fun fun!",
-  "main": "server.js"
+  "main": "server.js",
   "repository": "https://github.com/thevolcanomanishere/Waverate-Node-final",
   "author": "Alex McGonagle",
   "dependencies": {
