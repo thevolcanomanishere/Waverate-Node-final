@@ -34,7 +34,7 @@ var Account = require('./models/account');
 
 passport.use(Account.createStrategy());
 
-mongoose.connect('mongodb://alexmcgon:traktors4love209@ds023570.mlab.com:23570/waverate-database', function(err) {
+mongoose.connect('mongodb://dbuser:traktors4love209@ds023570.mlab.com:23570/waverate-database', function(err) {
     if (err) throw err;
     console.log(err);
 });
