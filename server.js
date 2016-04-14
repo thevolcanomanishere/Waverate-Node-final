@@ -40,4 +40,4 @@ require('./routes/routes')(app, passport);
 
 console.log("Server started");
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen(3000);
