@@ -34,7 +34,7 @@ var Account = require('./models/account');
 
 passport.use(Account.createStrategy());
 
-mongoose.connect('mongodb://localhost:27017/newTestDb');
+mongoose.connect('mongodb://alexmcgon:traktors4love209@ds023570.mlab.com:23570/waverate-database');
 require('./routes/routes')(app, passport);
 
 
