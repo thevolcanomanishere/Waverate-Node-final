@@ -28,6 +28,7 @@ module.exports = function (app, passport){
     
     //register a users details
     app.post('/register', function(req, res){
+        console.log("Working register");
         var username = req.body.username;
         var email = req.body.email;
         var password = req.body.password;
