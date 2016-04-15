@@ -51,6 +51,7 @@ module.exports = function (app, passport){
                 res.json(response);
             } else {
                 
+                //after account is created, create token for user and send to client
                 Account.createUserToken(email, function(err, usersToken){
                     if(err){
                         res.json({"error": true, "message": "Could not create token"});
@@ -182,6 +183,7 @@ module.exports = function (app, passport){
         var incomingToken = req.headers.token;
         var decoded = Account.decode(incomingToken);
         
+        //use decoded token to search for single user details
         if(decoded && decoded.email){
             Account.findUser(decoded.email, incomingToken, function(err, user) {
                 if(err) {
@@ -193,6 +195,7 @@ module.exports = function (app, passport){
                         res.json({"error": "Token expired. log in again"});
                     } else {
                         
+                    //add movie details to moviesWatched array
                     Account.update({email: decoded.email},{ $push: {moviesWatched: req.body}}, 
                     function(err, user){
                         if(err) {

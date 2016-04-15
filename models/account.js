@@ -44,6 +44,8 @@ var Account = new Schema({
 
 Account.plugin(passportLocalMongoose, {usernameField: 'email'});
 
+
+//code and decode token functions
 Account.statics.encode = function(data){
     return jwt.encode(data, tokenSecret);
 };
@@ -52,6 +54,7 @@ Account.statics.decode = function(data){
     return jwt.decode(data, tokenSecret);
 };
 
+//find user with email and token
 Account.statics.findUser = function(email, token, cb) {
     var self = this;
     console.log("This is firing");
@@ -68,7 +71,7 @@ Account.statics.findUser = function(email, token, cb) {
     });
 };
 
-
+//find single user using email decoded from token
 Account.statics.findUserByEmailOnly = function(email, cb) {
     var self = this;
     this.findOne({email: email}, function(err, usr){
@@ -81,6 +84,7 @@ Account.statics.findUserByEmailOnly = function(email, cb) {
 };
 
 
+//use jwt to create a token and add to user model
 Account.statics.createUserToken = function(email, cb){
     var self = this;
     this.findOne({email: email}, function(err,usr){
@@ -102,6 +106,7 @@ Account.statics.createUserToken = function(email, cb){
     });
 };
 
+//used for logut
 Account.statics.invalidateUserToken = function(email, cb) {
     var self = this;
     this.findOne({email: email}, function(err, usr) {

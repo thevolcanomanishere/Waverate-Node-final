@@ -14,13 +14,6 @@ app.use(express.methodOverride());
 app.use(passport.initialize());
 app.use(app.router);
 
-// //error handling
-// app.use((req, res, next) => {
-//   let err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showstack: true}));
@@ -34,6 +27,7 @@ var Account = require('./models/account');
 
 passport.use(Account.createStrategy());
 
+
 mongoose.connect('mongodb://dbuser:traktors4love209@ds023570.mlab.com:23570/waverate-database', function(err) {
     if (err) throw err;
     console.log(err);
@@ -43,6 +37,5 @@ require('./routes/routes')(app, passport);
 
 
 console.log("Server started");
-console.log("latest server 2");
 
 app.listen(process.env.PORT);
