@@ -9,8 +9,14 @@ module.exports = function (app, passport){
         res.status(200).send("Hello! all is working");
     })
     
+    
+    
     app.get('/hello', function(req, res){
         res.status(200).send("All is working still");
+    })
+    
+    app.get('/loaderio-4a531c1dd921cf286092dd52235dd055', function(req, res) {
+        res.status(200).send("loaderio-4a531c1dd921cf286092dd52235dd055");
     })
     
     //get a list of all users for testing
@@ -78,6 +84,8 @@ module.exports = function (app, passport){
             res.json({"error": true, "message": "Auth error"});
         }
     });
+    
+    
     
     //logout
     app.get('/logout', function(req, res){
@@ -210,7 +218,7 @@ module.exports = function (app, passport){
             })
         } else {
             console.log("Problem decoding token");
-            res.json({"error": "Exploded"});
+            res.json({"error": true, "message": "Exploded"});
         }
     
     });
