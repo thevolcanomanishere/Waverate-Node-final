@@ -10,6 +10,7 @@
     "crypto": "0.0.3",
     "debug": "^2.2.0",
     "express": "~3.2.4",
+    "jackrabbit": "^4.3.0",
     "jade": "^1.11.0",
     "jwt-simple": "^0.5.0",
     "kue": "^0.10.5",

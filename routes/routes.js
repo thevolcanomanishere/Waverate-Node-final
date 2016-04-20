@@ -91,6 +91,10 @@ module.exports = function (app, passport){
     app.get('/logout', function(req, res){
         var incomingToken = req.headers.token;
         
+        if(!incomingToken){
+            res.json({"error": true, "message": "No token"})
+        
+        } else {
         if(incomingToken){
             var decoded = Account.decode(incomingToken);
             if(decoded && decoded.email) {
@@ -106,6 +110,9 @@ module.exports = function (app, passport){
                 res.json({"error": true, "message": "Issue decoding token"});
             }
         }
+        }
+        
+        
     })
     
     //test token check

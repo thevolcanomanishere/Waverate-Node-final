@@ -28,11 +28,11 @@ var Account = require('./models/account');
 passport.use(Account.createStrategy());
 
 
-mongoose.connect('mongodb://dbuser:traktors4love209@ds023570.mlab.com:23570/waverate-database', function(err) {
-    if (err) throw err;
-    console.log(err);
-});
-// mongoose.connect('mongodb://localhost:27017/testDb');
+// mongoose.connect('mongodb://dbuser:traktors4love209@ds023570.mlab.com:23570/waverate-database', function(err) {
+//     if (err) throw err;
+//     console.log(err);
+// });
+mongoose.connect('mongodb://localhost:27017/testDb');
 require('./routes/routes')(app, passport);
 
 
